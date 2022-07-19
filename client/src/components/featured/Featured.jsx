@@ -1,7 +1,29 @@
 import { InfoOutlined, PlayArrow } from "@material-ui/icons";
 import "./featured.scss";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export default function Featured({ type }) {
+  const [content, setContent] = useState({});
+
+  useEffect(() => {
+    const getRandomContent = async () => {
+      try {
+        const res = await axios.get(`/movies/random?type=${type}`, {
+          headers: {
+            token:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZDU0YzIwMjA0NTliOGQ2MmY1MzUyMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1ODI1MjM2MiwiZXhwIjoxNjU4Njg0MzYyfQ.W4DLuxyd-rhdZ-50bcExTohvq6CtQAgVIRYFiRZQ1qk",
+          },
+        });
+        setContent(res.data[0]);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getRandomContent();
+  }, [type]);
+
+  console.log(content);
   return (
     <div className="featured">
       {type && (
@@ -25,21 +47,10 @@ export default function Featured({ type }) {
           </select>
         </div>
       )}
-      <img
-        src="img/naruto.jpg"
-        alt=""
-      />
+      <img src={content.img} alt="" />
       <div className="info">
-        <img
-          src="img/naruto_logo.png"
-          alt=""
-        />
-        <span className="desc">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-          adipisci repellendus eum quasi illo, velit numquam, maxime tempora
-          sint deleniti, aliquid qui? Facilis, adipisci! Ratione hic repudiandae
-          temporibus eum earum?
-        </span>
+        <img src={content.imgTitle} alt="" />
+        <span className="desc">{content.desc}</span>
         <div className="buttons">
           <button className="play">
             <PlayArrow />
