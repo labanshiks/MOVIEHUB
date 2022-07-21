@@ -1,4 +1,4 @@
-import "./app.scss"
+import "./app.scss";
 import Home from "./pages/home/Home";
 import Register from "./pages/register/Register";
 import Watch from "./pages/watch/Watch";
@@ -9,11 +9,11 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-
-
+import { useContext } from "react";
+import { AuthContext } from "./authContext/AuthContext";
 
 const App = () => {
-  const user = true;
+  const { user } = useContext(AuthContext);
   return (
     <Router>
       <Switch>

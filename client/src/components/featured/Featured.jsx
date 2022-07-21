@@ -1,9 +1,9 @@
 import { InfoOutlined, PlayArrow } from "@material-ui/icons";
-import "./featured.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import "./featured.scss";
 
-export default function Featured({ type }) {
+export default function Featured({ type, setGenre }) {
   const [content, setContent] = useState({});
 
   useEffect(() => {
@@ -12,7 +12,7 @@ export default function Featured({ type }) {
         const res = await axios.get(`/movies/random?type=${type}`, {
           headers: {
             token:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZDU0YzIwMjA0NTliOGQ2MmY1MzUyMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1ODI2MjA2NSwiZXhwIjoxNjU4Njk0MDY1fQ.drsHyT9xWfuGYSjthDJekJ8fBDrYIN04sNyiWysQ2m0",
+              "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
           },
         });
         setContent(res.data[0]);
@@ -28,8 +28,12 @@ export default function Featured({ type }) {
     <div className="featured">
       {type && (
         <div className="category">
-          <span>{type === "movie" ? "Movies" : "Series"}</span>
-          <select name="genre" id="genre">
+          <span>{type === "movies" ? "Movies" : "Series"}</span>
+          <select
+            name="genre"
+            id="genre"
+            onChange={(e) => setGenre(e.target.value)}
+          >
             <option>Genre</option>
             <option value="adventure">Adventure</option>
             <option value="comedy">Comedy</option>
