@@ -12,7 +12,7 @@ export default function WidgetSm() {
         const res = await axios.get("/users?new=true", {
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZDU0YzIwMjA0NTliOGQ2MmY1MzUyMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1ODQzMjMxNywiZXhwIjoxNjU4ODY0MzE3fQ.s1ZB3ksFW5IA4CVeJBV1B7u_YFbvMAi4YBjVI12I5aY",
+              "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
           },
         });
         setNewUsers(res.data);
@@ -25,7 +25,7 @@ export default function WidgetSm() {
   
   return (
     <div className="widgetSm">
-      <span className="widgetSmTitle">New Join Members</span>
+      <span className="widgetSmTitle">New Users</span>
       <ul className="widgetSmList">
         {newUsers.map((user) => (
           <li className="widgetSmListItem">
@@ -42,7 +42,6 @@ export default function WidgetSm() {
             </div>
             <button className="widgetSmButton">
               <Visibility className="widgetSmIcon" />
-              Display
             </button>
           </li>
         ))}

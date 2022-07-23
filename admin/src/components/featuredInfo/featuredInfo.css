@@ -15,7 +15,7 @@
 }
 
 .featuredTitle{
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .featuredMoneyContainer{
@@ -36,7 +36,7 @@
 }
 
 .featuredIcon{
-    font-size: 14px;
+    font-size: 19px;
     margin-left: 5px;
     color: green;
 }
@@ -46,6 +46,6 @@
 }
 
 .featuredSub{
-    font-size: 15px;
+    font-size: 20px;
     color: gray;
 }
