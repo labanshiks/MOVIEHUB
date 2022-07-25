@@ -1,4 +1,4 @@
-import { ArrowDropDown, Notifications, Search } from "@material-ui/icons";
+import { Search, Settings } from "@material-ui/icons";
 import { useContext, useState } from "react";
 import "./navbar.scss";
 import { Link } from "react-router-dom";
@@ -24,27 +24,18 @@ const Navbar = () => {
           <Link to="/" className="link">
             <span>Homepage</span>
           </Link>
-          <Link to="/series" className="link">
-            <span className="navbarmainLinks">Series</span>
-          </Link>
           <Link to="/movies" className="link">
             <span className="navbarmainLinks">Movies</span>
           </Link>
-          <span>New and Popular</span>
-          <span>My List</span>
+          <Link to="/series" className="link">
+            <span className="navbarmainLinks">Series</span>
+          </Link>
         </div>
         <div className="right">
           <Search className="icon" />
-          <span>KID</span>
-          <Notifications className="icon" />
-          <img
-            src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt=""
-          />
           <div className="profile">
-            <ArrowDropDown className="icon" />
+            <Settings className="icon" />
             <div className="options">
-              <span>Settings</span>
               <span onClick={() => dispatch(logout())}>Logout</span>
             </div>
           </div>

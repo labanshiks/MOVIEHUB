@@ -1,6 +1,27 @@
 import "./widgetLg.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function WidgetLg() {
+  const [newMovies, setNewMovies] = useState([]);
+
+  useEffect(() => {
+    const getNewMovies = async () => {
+      try {
+        const res = await axios.get("/movies?new=true", {
+          headers: {
+            token:
+              "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
+          },
+        });
+        setNewMovies(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getNewMovies();
+  }, []);
+
   const Button = ({ type }) => {
     return <button className={"widgetLgButton " + type}>{type}</button>;
   };
@@ -14,48 +35,21 @@ export default function WidgetLg() {
             <th className="widgetLgTh">Date</th>
             <th className="widgetLgTh">Status</th>
           </tr>
+          {newMovies.map((movie) => (
           <tr className="widgetLgTr">
             <td className="widgetLgUser">
               <img
-                src="https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                alt=""
-                className="widgetLgImg"
+               src={movie.img} alt="" className="widgetLgImg"
               />
-              <span className="widgetLgName">Avengers</span>
+              <span className="widgetLgName">{movie.title}</span>
             </td>
             <td className="widgetLgDate">2 Jun 2021</td>
             <td className="widgetLgStatus">
               <Button type="Approved" />
+              {movie.isSeries}
             </td>
           </tr>
-          <tr className="widgetLgTr">
-            <td className="widgetLgUser">
-              <img
-                src="https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                alt=""
-                className="widgetLgImg"
-              />
-              <span className="widgetLgName">Avengers 2</span>
-            </td>
-            <td className="widgetLgDate">2 Jun 2021</td>
-            <td className="widgetLgStatus">
-              <Button type="Declined" />
-            </td>
-          </tr>
-          <tr className="widgetLgTr">
-            <td className="widgetLgUser">
-              <img
-                src="https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                alt=""
-                className="widgetLgImg"
-              />
-              <span className="widgetLgName">Infinity War</span>
-            </td>
-            <td className="widgetLgDate">2 Jun 2021</td>
-            <td className="widgetLgStatus">
-              <Button type="Pending" />
-            </td>
-          </tr>
+          ))}
         </tbody>
       </table>
     </div>
