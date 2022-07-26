@@ -26,7 +26,7 @@ export default function List({ list }) {
   };
   return (
     <div className="list">
-      <span className="listTitle">{list.title}</span>
+      <span className="listTitle">{list.category}</span>
       <div className="wrapper">
         <ArrowBackIosOutlined
           className="sliderArrow left"

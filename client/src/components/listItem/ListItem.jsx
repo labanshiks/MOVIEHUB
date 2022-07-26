@@ -38,7 +38,7 @@ export default function ListItem({ index, item }) {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <img src={movie?.imgSm} alt="" />
+        <img src={movie?.thumbnail} alt="" />
         {isHovered && (
           <>
             <video src={movie.trailer} autoPlay={true} loop />
@@ -50,8 +50,6 @@ export default function ListItem({ index, item }) {
                 <ThumbDownOutlined className="icon" />
               </div>
               <div className="itemInfoTop">
-                <span>{movie.duration}</span>
-                <span className="limit">+{movie.limit}</span>
                 <span>{movie.year}</span>
               </div>
               <div className="desc">{movie.desc}</div>
