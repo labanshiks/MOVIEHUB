@@ -18,7 +18,7 @@ export default function MovieList() {
   };
 
   const columns = [
-    { field: "_id", headerName: "ID", width: 120 },
+    { field: "_id", headerName: "ID", width: 150 },
     {
       field: "movie",
       headerName: "Movie",
@@ -26,7 +26,7 @@ export default function MovieList() {
       renderCell: (params) => {
         return (
           <div className="productListItem">
-            <img className="productListImg" src={params.row.img} alt="" />
+            <img className="productListImg" src={params.row.thumbnail} alt="" />
             {params.row.title}
           </div>
         );
@@ -37,9 +37,9 @@ export default function MovieList() {
     { field: "isSeries", headerName: "isSeries", width: 120 },
 
     {
-      field: "action",
-      headerName: "Action",
-      width: 150,
+      field: "edit",
+      headerName: "Edit",
+      width: 120,
       renderCell: (params) => {
         return (
           <>
@@ -48,6 +48,18 @@ export default function MovieList() {
             >
               <button className="productListEdit">Edit</button>
             </Link>
+          </>
+        );
+      },
+    },
+
+    {
+      field: "delete",
+      headerName: "Delete",
+      width: 120,
+      renderCell: (params) => {
+        return (
+          <>
             <DeleteOutline
               className="productListDelete"
               onClick={() => handleDelete(params.row._id)}

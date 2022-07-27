@@ -16,7 +16,7 @@ export default function Movie() {
       <div className="productTop">
         <div className="productTopRight">
           <div className="productInfoTop">
-            <img src={movie.img} alt="" className="productInfoImg" />
+            <img src={movie.thumbnail} alt="" className="productInfoImg" />
             <span className="productName">{movie.title}</span>
           </div>
           <div className="productInfoBottom">
@@ -32,10 +32,6 @@ export default function Movie() {
               <span className="productInfoKey">year:</span>
               <span className="productInfoValue">{movie.year}</span>
             </div>
-            <div className="productInfoItem">
-              <span className="productInfoKey">limit:</span>
-              <span className="productInfoValue">{movie.limit}</span>
-            </div>
           </div>
         </div>
       </div>
@@ -48,8 +44,6 @@ export default function Movie() {
             <input type="text" placeholder={movie.year} />
             <label>Genre</label>
             <input type="text" placeholder={movie.genre} />
-            <label>Limit</label>
-            <input type="text" placeholder={movie.limit} />
             <label>Trailer</label>
             <input type="file" placeholder={movie.trailer} />
             <label>Video</label>
@@ -58,7 +52,7 @@ export default function Movie() {
           <div className="productFormRight">
             <div className="productUpload">
               <img
-                src={movie.img}
+                src={movie.thumbnail}
                 alt=""
                 className="productUploadImg"
               />
