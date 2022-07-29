@@ -40,11 +40,11 @@ export default function NewList() {
       <form className="addProductForm">
         <div className="formLeft">
           <div className="addProductItem">
-            <label>Title</label>
+            <label>Category</label>
             <input
               type="text"
               placeholder="Popular Movies"
-              name="title"
+              name="category"
               onChange={handleChange}
             />
           </div>

@@ -16,7 +16,7 @@ export default function List() {
       <div className="productTop">
         <div className="productTopRight">
           <div className="productInfoTop">
-            <span className="productName">{list.title}</span>
+            <span className="productName">{list.category}</span>
           </div>
           <div className="productInfoBottom">
             <div className="productInfoItem">
@@ -37,8 +37,8 @@ export default function List() {
       <div className="productBottom">
         <form className="productForm">
           <div className="productFormLeft">
-            <label>List Title</label>
-            <input type="text" placeholder={list.title} />
+            <label>Category</label>
+            <input type="text" placeholder={list.category} />
             <label>Type</label>
             <input type="text" placeholder={list.type} />
             <label>Genre</label>

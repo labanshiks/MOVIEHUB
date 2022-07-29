@@ -1,12 +1,22 @@
 .featured {
-    height: 90vh;
+    height: 95vh;
     position: relative;
+    background: linear-gradient(to bottom, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
+
+    video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 
     .category {
         position: absolute;
         top: 80px;
         left: 50px;
-        font-size: 30px;
+        font-size: 45px;
         font-weight: 500;
         color: white;
         display: flex;
@@ -38,7 +48,7 @@
         flex-direction: column;
 
         img {
-            width: 250px;
+            width: 200px;
         }
 
         .desc {
@@ -49,9 +59,9 @@
             display: flex;
 
             button {
-                padding: 10px 20px;
+                padding: 8px 15px;
                 border: none;
-                border-radius: 5px;
+                border-radius: 3px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -65,13 +75,9 @@
                     color: var(--main-color);
                 }
 
-                &.more {
-                    background-color: gray;
-                    color: white;
-                }
-
                 span {
                     margin-left: 5px;
+                    text-decoration: none;
                 }
             }
         }
