@@ -36,6 +36,7 @@ const Navbar = () => {
           <div className="profile">
             <Settings className="icon" />
             <div className="options">
+              <span>My Account</span>
               <span onClick={() => dispatch(logout())}>Logout</span>
             </div>
           </div>

@@ -2,8 +2,6 @@ import "./listItem.scss";
 import {
   PlayArrow,
   Add,
-  ThumbUpAltOutlined,
-  ThumbDownOutlined,
 } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -38,13 +36,11 @@ export default function ListItem({ index, item }) {
         <img src={movie?.thumbnail} alt="" />
         {isHovered && (
           <>
-            <video src={movie.trailer} autoPlay={true} loop />
+            <img src={movie?.thumbnail} alt="" />
             <div className="itemInfo">
               <div className="icons">
                 <PlayArrow className="icon" />
                 <Add className="icon" />
-                <ThumbUpAltOutlined className="icon" />
-                <ThumbDownOutlined className="icon" />
               </div>
               <div className="itemInfoTop">
                 <span>{movie.year}</span>

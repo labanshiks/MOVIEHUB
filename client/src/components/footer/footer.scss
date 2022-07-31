@@ -23,6 +23,14 @@
             .col {
                 margin: 3em;
 
+                h4 {
+                    font-weight: bold;
+                    font-size: 1.4em;
+                    line-height: 1.4em;
+                    text-transform: uppercase;
+                    white-space: nowrap;
+                }
+
                 .list-content{
                     list-style: none;
                     text-align: left;
