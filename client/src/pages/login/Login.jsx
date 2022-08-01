@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { login } from "../../authContext/apiCalls";
 import { AuthContext } from "../../authContext/AuthContext";
+import { Link } from "react-router-dom";
 import "./login.scss";
 
 export default function Login() {
@@ -16,19 +17,15 @@ export default function Login() {
     <div className="login">
       <div className="top">
         <div className="wrapper">
-          <img
-            className="logo"
-            src="img/LOGO.png"
-            alt=""
-          />
+          <img className="logo" src="img/LOGO.png" alt="" />
         </div>
       </div>
       <div className="container">
         <form>
-          <h1>Sign In</h1>
+          <h1>Log In</h1>
           <input
             type="email"
-            placeholder="Email or phone number"
+            placeholder="Email address"
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
@@ -37,15 +34,12 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button className="loginButton" onClick={handleLogin}>
-            Sign In
+            Log In
           </button>
-          <span>
-            New to Netflix? <b>Sign up now.</b>
-          </span>
-          <small>
-            This page is protected by Google reCAPTCHA to ensure you're not a
-            bot. <b>Learn more</b>.
-          </small>
+          <span>Don't have an account yet?</span>
+          <Link style={{ textDecoration: "none", color: "red" }} to="/register">
+            <h3>Register here</h3>
+          </Link>
         </form>
       </div>
     </div>
