@@ -27,6 +27,6 @@ app.use("/api/users", userRoute);
 app.use("/api/movies", movieRoute);
 app.use("/api/lists", listRoute);
 
-app.listen(8800, () => {
+app.listen(8801, () => {
   console.log("Backend server is running!");
 });
