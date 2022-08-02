@@ -1,92 +1,103 @@
 @import "../../app.scss";
 
 .featured {
-    height: 95vh;
-    position: relative;
-    background: linear-gradient(to bottom, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
+  height: 86vh;
+  position: relative;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
 
-    video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .category {
+    position: absolute;
+    top: 80px;
+    left: 50px;
+    font-size: 45px;
+    font-weight: 500;
+    color: white;
+    display: flex;
+    align-items: center;
+
+    select {
+      cursor: pointer;
+      background-color: var(--main-color);
+      border: 1px solid white;
+      color: white;
+      margin-left: 20px;
+      padding: 5px;
     }
+  }
 
-    .category {
-        position: absolute;
-        top: 80px;
-        left: 50px;
-        font-size: 45px;
-        font-weight: 500;
-        color: white;
-        display: flex;
-        align-items: center;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-        select {
-            cursor: pointer;
-            background-color: var(--main-color);
-            border: 1px solid white;
-            color: white;
-            margin-left: 20px;
-            padding: 5px;
-        }
-    }
+  .info {
+    width: 30%;
+    position: absolute;
+    left: 50px;
+    bottom: 70px;
+    color: white;
+    display: flex;
+    flex-direction: column;
 
     img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+      width: 10vw;
+      object-fit: cover;
+      margin-top: 100px;
+
+      @include tablet;
+      @include mobile {
+        width: 40vw;
+      }
     }
 
-    .info {
-        width: 35%;
-        position: absolute;
-        left: 50px;
-        bottom: 100px;
-        color: white;
+    .desc {
+      margin: 20px 0px;
+      width: 40vw;
+
+      @include mobile {
+        width: 60vw;
+      }
+    }
+
+    .buttons {
+      display: flex;
+
+      button {
+        padding: 8px 15px;
+        border: none;
+        border-radius: 3px;
         display: flex;
-        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 500;
+        margin-right: 10px;
+        cursor: pointer;
 
-        img {
-            width: 40vw;
-            margin-top: 100px;
+        &.play {
+          background-color: white;
+          color: var(--main-color);
         }
 
-        .desc {
-            margin: 20px 0px;
-
-            @include mobile {
-                width: 60vw;
-            }
+        span {
+          margin-left: 5px;
+          text-decoration: none;
         }
-
-        .buttons {
-            display: flex;
-
-            button {
-                padding: 8px 15px;
-                border: none;
-                border-radius: 3px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 18px;
-                font-weight: 500;
-                margin-right: 10px;
-                cursor: pointer;
-
-                &.play {
-                    background-color: white;
-                    color: var(--main-color);
-                }
-
-                span {
-                    margin-left: 5px;
-                    text-decoration: none;
-                }
-            }
-        }
+      }
     }
+  }
 }

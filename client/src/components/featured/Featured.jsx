@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import "./featured.scss";
 import { Link } from "react-router-dom";
 
-
 export default function Featured({ type, setGenre }) {
   const [isHovered, setIsHovered] = useState(false);
   const [content, setContent] = useState({});
@@ -15,7 +14,7 @@ export default function Featured({ type, setGenre }) {
         const res = await axios.get(`/movies/random?type=${type}`, {
           headers: {
             token:
-              "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
+              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
           },
         });
         setContent(res.data[0]);
@@ -28,10 +27,11 @@ export default function Featured({ type, setGenre }) {
 
   console.log(content);
   return (
-    <div className="featured"
+    <div
+      className="featured"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      >
+    >
       {type && (
         <div className="category">
           <span>{type === "movies" ? "Movies" : "Series"}</span>
@@ -62,7 +62,10 @@ export default function Featured({ type, setGenre }) {
         <img src={content.logo} alt="" />
         <span className="desc">{content.desc}</span>
         <div className="buttons">
-          <Link to={{ pathname: "/watch", content: content }}>
+          <Link
+            to={{ pathname: "/watch", content: content }}
+            style={{ textDecoration: "none" }}
+          >
             <button className="play">
               <PlayArrow />
               <span>Play</span>
@@ -77,7 +80,10 @@ export default function Featured({ type, setGenre }) {
             <img src={content.logo} alt="" />
             <span className="desc">{content.desc}</span>
             <div className="buttons">
-              <Link to={{ pathname: "/watch", content: content }}>
+              <Link
+                to={{ pathname: "/watch", content: content }}
+                style={{ textDecoration: "none" }}
+              >
                 <button className="play">
                   <PlayArrow />
                   <span>Play</span>
